@@ -4,10 +4,10 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/birthday")
+@app.route("/Full_name")
 def main():
-    return "My birthday 29 June"
+    return "Papkova Diana Valeriivna"
 
 
 if __name__ == "__main__":
-    app.run("/birthday")
+    app.run("/Full_name")
