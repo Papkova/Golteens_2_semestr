@@ -4,7 +4,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/hobby")
 def main():
     return "My hobby is programming and target"
 
