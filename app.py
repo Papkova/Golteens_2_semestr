@@ -10,11 +10,10 @@ app = Flask(__name__)
 load_dotenv()
 
 
-@app.route("/")
+@app.route("/hobby")
 def main():
-    return render_template(".index.html")
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
-    app.run()
     app.run(debug=os.getenv("DEBUG"))
