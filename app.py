@@ -1,13 +1,20 @@
 from flask import Flask
+import os
+from flask import Flask, render_template
+from dotenv import load_dotenv
 
 
 app = Flask(__name__)
 
 
-@app.route("/hobby")
+load_dotenv()
+
+
+@app.route("/")
 def main():
-    return "My hobby is programming and target"
+    return render_template(".index.html")
 
 
 if __name__ == "__main__":
-    app.run("/hobby")
+    app.run()
+    app.run(debug=os.getenv("DEBUG"))
