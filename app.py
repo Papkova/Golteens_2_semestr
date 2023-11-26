@@ -47,50 +47,95 @@ def create_article():
         return render_template("create_article.html")
 
 
-@app.route("/articles")
+# @app.route("/articles")
+# def list_articles():
+#     articles = Article.query.order_by(Article.data.desc()).all()
+#     return render_template("articles.html", articles=articles)
+#
+#
+# @app.route("/articles/<int:id>/")
+# def article_detail(id):
+#     article = Article.query.get(id)
+#     return render_template("article_detail.html", article=article)
+#
+#
+#
+#
+#
+# @app.route("/articles/<int:id>/delete")
+# def article_delete(id):
+#     article = Article.query.get_or_404(id)
+#
+#     try:
+#         db.session.delete(article)
+#         db.session.commit()
+#         return redirect("/articles")
+#     except Exception as exc:
+#         return f"При видаленні виникла помилка: {exc}"
+#
+#
+# @app.route("/articles/<int:id>/update", methods=["POST", "GET"])
+# def article_update(id):
+#     article = Article.query.get(id)
+#
+#     if request.method == "POST":
+#         article.title = request.form["title"]
+#         article.intro = request.form["intro"]
+#         article.text = request.form["text"]
+#
+#         try:
+#             db.session.commit()
+#             return redirect("/articles")
+#         except Exception as exc:
+#             return f"При оновленні виникла помилка: {exc}"
+#     else:
+#         return render_template("article_update.html", article=article)
+
+
+
+@app.route("/diana")
 def list_articles():
-    articles = Article.query.order_by(Article.data.desc()).all()
-    return render_template("articles.html", articles=articles)
+    diana = Article.query.order_by(Article.data.desc()).all()
+    return render_template("articles.html", articles=diana)
 
 
-@app.route("/articles/<int:id>/")
+@app.route("/diana/<int:id>/")
 def article_detail(id):
-    article = Article.query.get(id)
-    return render_template("article_detail.html", article=article)
+    diana = Article.query.get(id)
+    return render_template("art_detail.html", article=diana)
 
 
 
 
 
-@app.route("/articles/<int:id>/delete")
+@app.route("/diana/<int:id>/delete")
 def article_delete(id):
-    article = Article.query.get_or_404(id)
+    diana = Article.query.get_or_404(id)
 
     try:
-        db.session.delete(article)
+        db.session.delete(diana)
         db.session.commit()
-        return redirect("/articles")
+        return redirect("/diana")
     except Exception as exc:
         return f"При видаленні виникла помилка: {exc}"
 
 
-@app.route("/articles/<int:id>/update", methods=["POST", "GET"])
+@app.route("/diana/<int:id>/update", methods=["POST", "GET"])
 def article_update(id):
-    article = Article.query.get(id)
+    diana = Article.query.get(id)
 
     if request.method == "POST":
-        article.title = request.form["title"]
-        article.intro = request.form["intro"]
-        article.text = request.form["text"]
+        diana.title = request.form["title"]
+        diana.intro = request.form["intro"]
+        diana.text = request.form["text"]
 
         try:
             db.session.commit()
-            return redirect("/articles")
+            return redirect("/diana")
         except Exception as exc:
             return f"При оновленні виникла помилка: {exc}"
     else:
-        return render_template("article_update.html", article=article)
-
+        return render_template("art_update.html", article=diana)
 
 
 
